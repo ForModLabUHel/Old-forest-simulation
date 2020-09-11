@@ -3,7 +3,7 @@
 .Rapp.history
 
 # Session Data files
-.RData
+setwd("F:/UH-work/PREBAS simulation/oldForest/anu")
 
 # User-specific files
 .Ruserdata
