@@ -1,4 +1,4 @@
-setwd("F:/UH-work/PREBAS simulation/Old Forest")
+# setwd("F:/UH-work/PREBAS simulation/Old Forest")
 library(data.table)
 library(Rprebasso)
 library(ggplot2)
