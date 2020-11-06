@@ -1,4 +1,5 @@
-# setwd("F:/UH-work/PREBAS simulation/Old Forest")
+# setwd("F:/UH-work/PREBAS simulation/Old Forest")  #path of Amanda
+
 library(data.table)
 library(Rprebasso)
 library(ggplot2)
@@ -8,7 +9,7 @@ load("inputs/weather.rdata")
 initVarX <- data.table(read.csv("inputs_multilayer/initVar.csv",header = T))
 nLayers <- ncol(initVarX) - 2
 sites <- as.character(unique(initVarX$siteID)) ## unique site number
-siteX <- which(coord[,1] %in% initVarX$siteID) ## %in% means if the element on the left is exist in the right, if it does, then true, otherwise faulse
+siteX <- which(coord[,1] %in% initVarX$siteID) ## %in% means if the element on the left is exist in the right, if it does, then true, otherwise false
 nSites <- length(sites)
 initVar <- array(NA,dim=c(nSites,7,nLayers))
 for(i in 1:nSites){
@@ -17,7 +18,7 @@ for(i in 1:nSites){
 initVar[apply(initVar, 1, function(x)!any(is.na(x))), , , drop=F]
 initVar
 
-initVar[is.na(initVar)] <- 0. ### here is the problem where make the figures showing 0, but if it use NA, the prebas doesn't work
+initVar[is.na(initVar)] <- 0. ### here is the problem where make the figures showing 0, but if it use NA, the PREBAS doesn't work
 initVar[,2,] <- 1
 siteInfo <- read.csv("inputs_multilayer/siteInfo.csv",header = T)
 siteInfo <- siteInfo[siteX,]
