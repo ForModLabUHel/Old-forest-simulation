@@ -15,6 +15,7 @@ initVar <- array(NA,dim=c(nSites,7,nLayers))
 for(i in 1:nSites){
   initVar[i,,] <- as.matrix(initVarX[siteID==sites[i]][,2:(nLayers+1)])
 }
+
 initVar[apply(initVar, 1, function(x)!any(is.na(x))), , , drop=F]
 initVar
 
